@@ -1,7 +1,7 @@
 #############
 # Test stage
 FROM alpine AS test
-LABEL applicatin=todobackend
+LABEL application=todobackend
 
 # Install basic utilities
 RUN apk add --no-cache bash git
