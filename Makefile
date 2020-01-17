@@ -22,6 +22,9 @@ release:
 	docker-compose up --abort-on-container-exit acceptance
 	@ echo App runnig at http://$$(docker-compose port app 8000 | sed s/0.0.0.0/localhost/g)
 
+publish:
+	docker-compose push release app
+
 clean:
 	docker-compose down -v
 	docker images -q -f dangling=true -f label=application=todobackend | xargs -I ARGS docker rmi -f --no-prune ARGS
