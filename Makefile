@@ -1,9 +1,15 @@
-.PHONY: test release clean version
+.PHONY: test release clean version login logout
 
 export APP_VERSION ?= $(shell git rev-parse --short HEAD)
 
 version:
 	@ echo '{"Version": "$(APP_VERSION)"}'
+
+login:
+	$$(aws ecr get-login --no-include-email)
+
+logout:
+	docker logout https://105394972992.dkr.ecr.ap-northeast-1.amazonaws.com
 
 test:
 	docker-compose build --pull release
