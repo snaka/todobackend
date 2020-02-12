@@ -9,7 +9,7 @@ login:
 	$$(aws ecr get-login --no-include-email)
 
 logout:
-	docker logout https://105394972992.dkr.ecr.ap-northeast-1.amazonaws.com
+	docker logout https://105394972992.dkr.ecr.us-east-1.amazonaws.com
 
 test:
 	docker-compose build --pull release
